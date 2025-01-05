@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "User Dashboard";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Welcome to User Dashboard</h2>
+
+    <div class="text-center">
+        <a href="@Url.Action("AddUser", "User")" class="btn btn-primary btn-lg mb-3">Add New User</a>
+        <a href="@Url.Action("GetAllUsers", "User")" class="btn btn-success btn-lg mb-3">View All Users</a>
+    </div>
+</div>

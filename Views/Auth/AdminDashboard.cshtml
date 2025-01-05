@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Welcome to the Admin Dashboard</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">User Management</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p>View and manage all users of the system.</p>
+                    <a href="@Url.Action("GetAllUsers", "User")" class="btn btn-primary btn-lg">View All Users</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white text-center">
+                    <h4 class="mb-0">Bank Account Management</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p>View and manage bank accounts of users.</p>
+                    <a href="@Url.Action("ViewBankAccounts", "BankAccount", new { accountId = 1 })" class="btn btn-secondary btn-lg">View All Bank Accounts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

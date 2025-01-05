@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MINIBANK.Models.BankAccount>
+
+@{
+    ViewData["Title"] = "View Bank Accounts";
+}
+
+<h1>Bank Accounts</h1>
+
+<p>
+    <a asp-action="AddBankAccount" class="btn btn-primary">Create New Account</a>
+</p>
+<div style="margin-top: 10px;">
+    <button onclick="location.href='@Url.Action("AddTransaction", "Transaction")'" class="btn btn-secondary">
+        Make Payment
+    </button>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.User.Username)</th>
+            <th>@Html.DisplayNameFor(model => model.Balance)</th>
+            <th>@Html.DisplayNameFor(model => model.Type)</th>
+            <th>@Html.DisplayNameFor(model => model.CreatedAt)</th>
+            
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.User.Username)</td>
+                    <td>Rs. @Html.DisplayFor(modelItem => item.Balance)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Type)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                    
+                    <td>
+                        <a asp-action="UpdateBankAccount" asp-route-accountId="@item.AccountId" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="ViewBankAccountsByUserId" asp-route-userId="@item.UserId" class="btn btn-sm btn-success">Details</a>
+                        <a asp-action="DeleteBankAccount" asp-route-accountId="@item.AccountId" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this account?');">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No bank accounts available.</td>
+            </tr>
+        }
+    </tbody>
+</table>

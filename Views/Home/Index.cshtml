@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-flex {
+        display: flex;
+        height: 80vh;
+        gap: 20px; /* Adds space between sections */
+        padding: 20px; /* Adds padding around the container */
+    }
+
+    .section {
+        flex: 1; /* Makes both sections take equal width */
+        overflow: hidden; /* Ensures content stays within the section */
+    }
+
+    .image-section {
+        background-image: url('./Images/Bank.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .info-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+        .info-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-section p {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+    .btn-learn-more {
+        background-color: #003874;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+        .btn-learn-more:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<div class="container-flex">
+    <!-- Left section with the image -->
+    <div class="section image-section"></div>
+
+    <!-- Right section with bank information -->
+    <div class="section info-section">
+        <h1>Welcome to MINIBANK</h1>
+        <p>
+            At MINIBANK, we prioritize your financial success. Our bank offers a wide range
+            of services tailored to meet your needs, including savings accounts, loans, and
+            investment options. With state-of-the-art security and a customer-first approach,
+            we ensure your peace of mind and satisfaction.
+        </p>
+        <a href="/auth/login" class="btn-learn-more">Get Started</a>
+    </div>
+</div>

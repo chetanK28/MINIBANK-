@@ -1,0 +1,128 @@
+﻿@model MINIBANK.Models.Users
+
+@{
+    ViewData["Title"] = "Signup";
+}
+
+<style>
+
+
+
+    .card {
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .card-header {
+        background: linear-gradient(to right, #4caf50, #66bb6a);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .card-body {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+    }
+
+    .form-control {
+        background-color: #f7f7f7;
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-primary {
+        background: linear-gradient(to right, #4caf50, #66bb6a);
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 1rem;
+        color: white;
+        width: 100%;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #45a049, #5da25f);
+        }
+
+    .text-danger {
+        font-size: 0.85rem;
+        margin-top: -15px;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .error-message {
+        color: red;
+        text-align: center;
+        margin-top: 15px;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </div>
+                <div class="card-body">
+                    <form asp-action="Signup" method="post">
+                        <div class="form-group">
+                            <label asp-for="Username" class="form-label">Username</label>
+                            <input asp-for="Username" class="form-control" placeholder="Enter your username" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Role" class="form-label">Role</label>
+                            <select asp-for="Role" class="form-control">
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Moderator">Moderator</option>
+                            </select>
+                            <span asp-validation-for="Role" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Sign Up" class="btn btn-primary" />
+                        </div>
+                    </form>
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <p class="error-message">@ViewBag.Error</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">

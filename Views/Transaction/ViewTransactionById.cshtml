@@ -1,0 +1,21 @@
+﻿@model MINIBANK.Models.Transaction
+
+@{
+    ViewData["Title"] = "Transaction Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null)
+{
+    <p><strong>Transaction ID:</strong> @Model.TransactionId</p>
+    <p><strong>Account ID:</strong> @Model.AccountId</p>
+    <p><strong>Amount:</strong> @Model.Amount</p>
+    <p><strong>Type:</strong> @Model.Type</p>
+    <p><strong>Related Account ID:</strong> @Model.RelatedAccountId</p>
+    <p><strong>Created At:</strong> @Model.CreatedAt</p>
+}
+else
+{
+    <p>Transaction not found.</p>
+}

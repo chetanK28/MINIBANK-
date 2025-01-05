@@ -1,0 +1,27 @@
+﻿@model MINIBANK.Models.Transaction
+
+@{
+    ViewData["Title"] = "Delete Transaction";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null)
+{
+    <p>Are you sure you want to delete this transaction?</p>
+    <p><strong>Transaction ID:</strong> @Model.TransactionId</p>
+    <p><strong>Account ID:</strong> @Model.AccountId</p>
+    <p><strong>Amount:</strong> @Model.Amount</p>
+    <p><strong>Type:</strong> @Model.Type</p>
+    <p><strong>Created At:</strong> @Model.CreatedAt</p>
+
+    <form asp-action="DeleteTransaction" method="post">
+        <input type="hidden" asp-for="TransactionId" />
+        <button type="submit">Delete</button>
+        <a asp-action="ViewAllTransactions">Cancel</a>
+    </form>
+}
+else
+{
+    <p>Transaction not found.</p>
+}

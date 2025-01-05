@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "User Dashboard";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <button onclick="location.href='@Url.Action("AddBankAccount", "BankAccount")'" class="btn btn-primary">
+        Add Bank Account
+    </button>
+</div>
+
+<div style="margin-top: 10px;">
+    <button onclick="location.href='@Url.Action("Transactions", "BankAccount")'" class="btn btn-secondary">
+        Transactions
+    </button>
+</div>
